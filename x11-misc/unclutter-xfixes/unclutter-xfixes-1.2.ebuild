@@ -31,7 +31,7 @@ src_configure() {
 	# The part of the Makefile that sets the version shells out to Git.
 	# This doesn't work in a tarball, so edit the version in.
 	sed -i \
-		-e "s/-D'__VERSION=\"\$(shell git describe --all --long --always)\"'/-D'__VERSION=\"${PV}\"/" \
+		-e "s/-D'__VERSION=\"\$(shell git describe --all --long --always)\"'/-D'__VERSION=\"${PV}\"'/" \
 		"${WORKDIR}/${P}/Makefile" \
 		|| die "setting version in Makefile failed"
 }
